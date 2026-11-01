@@ -1,0 +1,93 @@
+/**
+ * Every fact on the site, in one place. References carry only what the
+ * sources were given as (authors, venue, year); titles are not filled in from
+ * memory. Feature descriptions follow the app README; formulas, validation
+ * and limits live there, not here.
+ */
+
+export interface Source {
+  id: number;
+  text: string;
+  href?: string;
+}
+
+export const SOURCES: Source[] = [
+  { id: 1, text: 'Childers & Maggard-Gibbons. JAMA Surgery, 2018.', href: 'https://pubmed.ncbi.nlm.nih.gov/29490366/' },
+  { id: 2, text: 'Hansen et al., 2013.' },
+  { id: 3, text: 'Reese et al. HPB, 2025.' },
+];
+
+/**
+ * The app's gesture map (src/input/handControl.ts): any open hand cuts, and
+ * rotation is pinch-and-drag. Clips are the app's own renders
+ * (scripts/gesture-gifs.ts, docs/video).
+ */
+export const GESTURES = [
+  {
+    key: 'open',
+    label: 'Open hand',
+    line: 'Cuts. The plane follows your palm.',
+    asset: 'cut',
+  },
+  {
+    key: 'pinch',
+    label: 'Pinch',
+    line: 'Turns the body, or slides the stent.',
+    asset: 'rotate',
+  },
+  {
+    key: 'caliper',
+    label: 'Two index fingers',
+    line: 'Measures, in millimetres.',
+    asset: 'measure',
+  },
+  {
+    key: 'fist',
+    label: 'Fist',
+    line: 'Locks the cut and lifts the piece out.',
+    asset: 'lock',
+  },
+] as const;
+
+/**
+ * The voice copilot (README "the copilot", "smart measurement", "measure,
+ * suggest, outcomes"). `say` is the phrase after the wake word; each clip in
+ * docs/video sends exactly that phrase through the app's speech grammar, and
+ * the figures quoted are the ones on screen in that clip.
+ */
+export const COPILOT = [
+  {
+    say: 'show me the tumor relative to the portal vein',
+    note: 'Closest wall-to-wall gap, measured on the segmentation',
+    asset: 'relation',
+  },
+  {
+    say: 'show me where the tumor is closest to a major vessel',
+    note: 'Nearest of every segmented vessel, with a CT slice through the gap',
+    asset: 'nearest',
+  },
+  {
+    say: 'measure the tumor',
+    note: 'RECIST diameter, short axis and volume',
+    asset: 'measure-tumor',
+  },
+  {
+    say: 'compare this cut to the original plan',
+    note: 'The saved plan and the new cut, run through the same engine',
+    asset: 'compare',
+  },
+  {
+    say: 'what are the outcomes',
+    note: 'Published rates for plans in this range, each with its study',
+    asset: 'outcomes',
+  },
+];
+
+/** Fill these before shipping; empty values are simply not rendered. */
+export const LINKS = {
+  app: '/app/' as string | null,
+  github: null as string | null,
+  devpost: null as string | null,
+  video: null as string | null,
+};
+export const TEAM: string[] = [];

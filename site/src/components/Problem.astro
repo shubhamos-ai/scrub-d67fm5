@@ -1,0 +1,68 @@
+---
+/**
+ * The problem, as a paragraph rather than a row of stat tiles. The figures
+ * and sources are the verified ones from the brief (data/content.ts SOURCES).
+ */
+---
+
+<section class="section" aria-labelledby="problem-label">
+  <div class="wrap grid">
+    <h2 class="h2 lede" id="problem-label">During surgery, doctors often need to check the patient’s scans. They can’t touch the computer without breaking sterility, so they have to ask someone else to do it for them.</h2>
+    <div class="prose">
+      <p>Operating-room time costs <span class="fig">$36–37 a minute</span><a class="ref" href="#ref-1">1</a>.</p>
+      <p>
+        Moving surgical guidance from a screen to sound cut screen time from <span class="fig">96% to 10%</span><a class="ref" href="#ref-2">2</a>.
+      </p>
+      <p>
+        After major liver surgery, <span class="fig">13%</span> of patients develop severe liver failure<a
+          class="ref"
+          href="#ref-3">3</a
+        >.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* A full sentence, so a step below the section display size. */
+  .lede {
+    grid-column: 1 / span 10;
+    margin-bottom: var(--s-8);
+    font-size: var(--fs-44);
+    line-height: 1.12;
+    max-width: 30ch;
+  }
+  .prose {
+    grid-column: 5 / span 7;
+    display: grid;
+    gap: var(--s-3);
+    font-size: var(--fs-28);
+    line-height: 1.4;
+    letter-spacing: var(--track-tight);
+    color: var(--text-dim);
+    max-width: 34ch;
+  }
+  .fig {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .ref {
+    font-size: 0.55em;
+    vertical-align: super;
+    margin-left: 0.15em;
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+  .ref:hover {
+    color: var(--text);
+  }
+  @media (max-width: 900px) {
+    .lede,
+    .prose {
+      grid-column: 1 / -1;
+    }
+    .prose {
+      font-size: var(--fs-20);
+    }
+  }
+</style>

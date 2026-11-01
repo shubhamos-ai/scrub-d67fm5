@@ -1,0 +1,40 @@
+node_modules/
+dist/
+web-dist/
+.vite/
+*.local
+.env
+.env.local
+
+# Raw datasets and intermediates are fetched by pipeline/download.sh
+pipeline/raw/
+pipeline/out/
+pipeline/tar_index.json
+__pycache__/
+*.pyc
+
+# Playwright
+test-results/
+playwright-report/
+
+# Copied from node_modules by scripts/copy-mediapipe.mjs
+public/mediapipe/
+
+# Local agent notes and a large source asset, kept out of the repo on purpose
+CLAUDE.md
+realistic_surgical_glove_with_folds_texture.zip
+
+.vercel
+
+# v2 backend
+backend/.venv/
+.pytest_cache/
+distill/data/traces_*.jsonl
+distill/data/sft_*.jsonl
+distill/data/eval_*.jsonl
+.claude/worktrees/
+
+# Gallery assets (vista/gallery.py); hosted from VITE_GALLERY_URL
+public/data/gallery/
+distill/data/archive/
+.env*.local

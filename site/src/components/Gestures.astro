@@ -1,0 +1,18 @@
+---
+import { GESTURES } from '../data/content.ts';
+import Stepper from './Stepper.astro';
+
+const items = GESTURES.map((g) => ({
+  label: g.label,
+  line: g.line,
+  asset: g.asset,
+  alt: `A gloved hand making the ${g.label.toLowerCase()} gesture, with Scrub+ responding on a liver CT.`,
+}));
+---
+
+<Stepper
+  id="gestures-label"
+  heading="Four hand shapes"
+  note="Recorded from the app. The glove is drawn from the hand data it received."
+  items={items}
+/>
